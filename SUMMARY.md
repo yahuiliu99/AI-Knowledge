@@ -1,3 +1,6 @@
 # Table of contents
 
-* [概率论基本知识](README.md)
+* [贝叶斯决策理论](README.md)
+* [最大似然和贝叶斯估计](zui-da-si-ran-he-bei-ye-si-gu-ji.md)
+* [半参数法](ban-can-shu-fa.md)
+* [非参数法](fei-can-shu-fa.md)
