@@ -7,3 +7,4 @@
 * [线性判别函数](xian-xing-pan-bie-han-shu.md)
 * [神经网络](shen-jing-wang-luo/README.md)
   * [Neural Network](shen-jing-wang-luo/neural-network.md)
+* [特征提取](te-zheng-ti-qu.md)
