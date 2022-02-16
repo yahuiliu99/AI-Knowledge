@@ -11,3 +11,5 @@
 * [模型选择](mo-xing-xuan-ze.md)
 * [聚类](ju-lei/README.md)
   * [距离度量](ju-lei/ju-li-du-liang.md)
+* [SVM](svm.md)
+* [决策树](jue-ce-shu.md)
