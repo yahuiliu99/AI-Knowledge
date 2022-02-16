@@ -53,14 +53,14 @@
 
     首先选择k个类的中心，将样本逐个指派到与其最近的中心的类中，得到一个聚类结果；然后更新每个类的样本的均值，作为类的新的中心；重复以上步骤，直到收敛为止。
 
+    ![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211224211148.png)
+
     *   目标函数：
 
         $$
         L_{k-\text { means }}=\sum_{j \in[k]} \sum_{i \in S_{j}}\left\|x_{i}-\mu_{j}\right\|^{2}
         $$
     * 算法复杂度：$$O(knm)$$，其中k是类别数，n是样本数，m是样本维数
-
-    ![image-20211224211148468](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211224211148.png)
 
 
 
@@ -183,11 +183,11 @@ $$
 *   #### 与K-Means的区别
 
     * **从优化目标的角度来看**
-      * K-means致力于==最小化类内的平均距离== （采用欧氏距离度量）
-      * 谱聚类致力于==最大化类内的平均相似度== （采用高斯函数计算相似度）
+      * K-means致力于<mark style="color:purple;">最小化类内的平均距离</mark>（采用欧氏距离度量）
+      * 谱聚类致力于<mark style="color:purple;">最大化类内的平均相似度</mark>（采用高斯函数计算相似度）
     * **从图的观点来看**
-      * K-means采用的是==全图==，即任意两个样本之间的距离都没有被忽略（global）
-      * 谱聚类采用的是==近邻图==，一般只计算每个样本与其近邻之间的相似度（local）
+      * K-means采用的是<mark style="color:red;">全图</mark>，即任意两个样本之间的距离都没有被忽略（global）
+      * 谱聚类采用的是<mark style="color:red;">近邻图</mark>，一般只计算每个样本与其近邻之间的相似度（local）
 
     ![image-20211225172236700](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211225172236.png)
 
@@ -199,7 +199,7 @@ $$
 
     <mark style="color:blue;">在低维空间线性不可分的数据在高维空间线性可分</mark>
 
-    所谓Kernel就是把数据从低维变换到高维
+    <mark style="color:orange;">所谓Kernel就是把数据从低维变换到高维</mark>
 *   #### Kernel
 
     ![image-20211225173216932](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211225173217.png)
