@@ -1,159 +1,83 @@
-# 深度前馈网络
+# 概率论基本知识
 
-## 前馈神经网络
+## 常见分布
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308184625.png)
+### 二项分布$$X\sim B(n,p)$$
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308184709.png)
+* 分布密度：$$P(X=j)=C_n^jp^jq^{n-j}, \quad 0\leq j\leq n$$
+* 均值：$$E(X)=np$$
+* 方差：$$Var(X)=npq$$
+* 二阶矩：$$E(X^2)=npq+(np)^2$$
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308185217.png)
+### 几何分布
 
-### 设计决策
+* 分布密度：$$P(X=j)=pq^{j-1}, \quad j=1,2,\cdots$$
+* 均值：$$E(X)=\dfrac{1}{p}$$
+* 方差：$$Var(X)=\dfrac{q}{p^2}$$
+* 二阶矩：$$E(X^2)=\dfrac{q+1}{p^2}$$
 
-* 需要选择优化器、损失函数和输出形式
-* 选择激活函数
-* 结构设计（网络层数等）
+### 均匀分布$$X\sim U(a,b)$$
 
-### 总结
+* 分布密度：$$f(x)=\dfrac{1}{b-a}, \quad x\in (a,b)$$
+* 均值：$$E(X)=\dfrac{a+b}{2}$$
+* 方差：$$Var(X)=\dfrac{(b-a)^2}{12}$$
+* 二阶矩：$$E(X^2)=\dfrac{b^3-a^3}{3(b-a)}$$
 
-* 设计和训练一个神经网络与训练任何其他具有梯度下降的机器学习模型没有太大区别
-* 最显著的差异：许多损失函数变成非凸函数
-* 与凸优化不同，收敛性并不能够保证
-* 应用梯度下降：需要指定损失函数，和输出表达
+### 正态分布$$X\sim N(\mu,\sigma^2)$$
 
-## 损失函数
+* 分布密度：$$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+* 均值：$$E(X)=\mu$$
+* 方差：$$Var(X)=\sigma^2$$
+* 二阶矩：$$E(X^2)=\sigma^2+\mu^2$$
 
-度量两个分布之间的相似度：KL散度
+### 泊松分布$$Poission(\lambda)$$
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308194055.png)
+* 分布密度：$$P(X=k)=\dfrac{\lambda^k}{k!}e^{-\lambda}, \quad k=0,1,\cdots$$
+* 均值：$$E(X)=\lambda$$
+* 方差：$$Var(X)=\lambda$$
+* 二阶矩：$$E(X^2)=\lambda+\lambda^2$$
 
-## 基本结构单元
+### 指数分布$$E(\lambda)$$
 
-### 输出单元
+* 分布密度：$$f(x)=\lambda e^{-\lambda x},\quad x>0$$
+* 均值：$$E(X)=\dfrac{1}{\lambda}$$
+* 方差：$$Var(X)=\dfrac{1}{\lambda^2}$$
+* 二阶矩：$$E(X^2)=\dfrac{2}{\lambda^2}$$
 
-#### 线性单元
+## 全概率公式
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308195811.png)
+* #### 离散型
 
-#### Sigmoid
+$$
+P(A)=\sum\limits_i P\{A|B_i\}P\{B_i\}
+$$
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308195838.png)
+* #### 连续型
 
-#### Softmax
+$$
+P(A)=\int_{-\infin}^{\infin} P\{A|Y=y\}f_Y(y)dy
+$$
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308195917.png)
+## 条件数学期望
 
-优点：
+* #### 离散型情形
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308195953.png)
+$$
+E\{E\{X|Y\}\}=\sum \limits_j E\{X|Y=y_j\}P\{Y=y_j\}=E\{X\}
+$$
 
-### 隐藏单元
+* #### 连续型情形
 
-#### Rectified Linear Units(ReLU)
+$$
+E\{E\{X|Y\}\}=\int _{-\infin}^{\infin} E\{X|Y=y\}f_Y(y)dy=E\{X\}
+$$
 
-优点：
+<mark style="color:red;">【注】</mark>：条件数学期望$$E\{X|Y\}$$是随机变量Y的函数
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308200114.png)
+* #### 条件数学期望的性质
 
-* 提供数值较大且恒定的梯度（不会饱和）
-* 迅速收敛，收敛速度比Sigmoid或Tanh快得多
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223161146.png)
 
-缺点：
+<mark style="color:red;">【注】</mark>：常用的计算式子
 
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308200230.png)
-
-* 非零中心输出
-* Units “die”：即不活跃的单元永远不会被更新
-
-#### Generalized ReLU
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308200540.png)
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308200614.png)
-
-#### Exponential Linear Units (ELUs)
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308200711.png)
-
-#### Sigmoid
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308200804.png)
-
-#### Tanh
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308200842.png)
-
-### 总结
-
-* 前馈网络中尽量不要使用Sigmoid
-* 必须使用Sigmoid时，用Tanh代替
-* 默认采用ReLU，但要谨慎选择学习率
-* 尝试其他的ReLU方式等，也许会获得性能提升
-
-## 网络结构设计
-
-### MLP构成通用分类器
-
-* MLPs可以拟合任何分类边界
-* 单层MLP可以对任何分类边界进行建模
-* MLP是通用分类器
-
-### MLP用来回归
-
-* 单层MLP可以对单个输入的任意函数建模
-
-### MLP构造连续值函数
-
-* 可以组成任意维数的任意函数
-  * 只需要一层，由缩放和平移的圆柱体的和构成
-  * 通过使得圆柱体变“瘦”，实现任意精度
-* 利用MLP簇构成高维空间的任意函数
-* MLP是一个通用逼近器
-
-### 深度的优势
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308203714.png)
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308203741.png)
-
-> 对照实验表明：卷积神经网络比全连接层的参数量小很多
-
-## 反向传播算法
-
-### 示例
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308204412.png)
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308204447.png)
-
-### 多维输出
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308204602.png)
-
-### 随机反向传播
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308204744.png)
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308204813.png)
-
-### Mini- batch随机梯度下降
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308204902.png)
-
-### Batch反向传播
-
-![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20220308205015.png)
-
-### 总结
-
-* 随机学习
-  * 梯度的估计是有噪声的，在每次迭代中权值可 能不会沿着梯度精确地向下移动
-  * 比批量学习更快，特别是当训练数据有冗余的 时候
-  * 噪声通常会产生更好的结果
-  * 权值是波动的，它可能不会最终收敛到局部极 小值
-* 批学习
-  * 收敛条件很好理解
-  * 一些加速技术只适用于批量学习
-  * 权值变化规律和收敛速度的理论分析相对简单
-
-\
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223161413.png)

@@ -54,7 +54,7 @@ $$
 
 如果有$$C_{XY}(s,t)=0$$或$$R_{XY}(s,t)=\mu_X(s)\cdot \mu_Y(t)$$，则称随机过程$${X(t);t\in T}、{Y(t);t\in T}$$是不相关的。
 
-## 3.两个随机过程的独立性${X(t);t\in T}、{Y(t);t\in T}$
+## 3.两个随机过程的独立性$${X(t);t\in T}、{Y(t);t\in T}$$
 
 联合分布函数
 
@@ -68,34 +68,40 @@ $$
 F_{XY}(x_1,\cdots,x_n;t_1,\cdots,t_n;y_1,\cdots,y_m;t_1',\cdots,t_m')\\ =F_{X}(x_1,\cdots,x_n;t_1,\cdots,t_n)\cdot F_Y(y_1,\cdots,y_m;t_1',\cdots,t_m')
 $$
 
-\==【注】==：两个随机过程独立即不相关，但反之不对。（只有正态过程的独立和不相关是等价的）
+<mark style="color:red;">【注】</mark>：两个随机过程独立即不相关，但反之不对。（只有正态过程的独立和不相关是等价的）
 
-### 4.母函数
+## 4.母函数
 
-*   #### 母函数定义
+### 母函数定义
 
-    ![image-20211223142547728](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223143321.png)
-*   #### 常见分布的母函数
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223143321.png)
 
-    ![image-20211223150615017](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223150615.png)
-*   #### 母函数的基本性质
+### 常见分布的母函数
 
-    ![image-20211223151448564](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223151448.png)
-*   #### 母函数的应用
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223150615.png)
 
-    ![image-20211223152128662](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223152128.png)
+### 母函数的基本性质
 
-### 5.特征函数
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223151448.png)
 
-*   #### 特征函数定义
+### 母函数的应用
 
-    ![image-20211223152631413](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223152631.png)
-*   #### 常见分布的特征函数
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223152128.png)
 
-    ![image-20211223152948968](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223152949.png)
-*   #### 特征函数的性质
+## 5.特征函数
 
-    ![image-20211223153049458](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223153049.png)
-*   #### 特征函数与分布函数的关系
+### 特征函数定义
 
-    ![image-20211223153207543](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223153207.png)
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223152631.png)
+
+### 常见分布的特征函数
+
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223152949.png)
+
+### 特征函数的性质
+
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223153049.png)
+
+### 特征函数与分布函数的关系
+
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211223153207.png)
