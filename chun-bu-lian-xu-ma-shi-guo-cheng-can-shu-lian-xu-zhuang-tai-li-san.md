@@ -12,7 +12,7 @@ $$
 p_{i j}\left(t_{1}, t_{2}\right) \hat{=} P\left\{X\left(t_{2}\right)=j \mid X\left(t_{1}\right)=i\right\}
 $$
 
-若$p\_{i j}\left(t\right)=p\_{i j}\left(t\_{1}, t\_{2}\right)$，即转移概率仅为时间差$t=t\_2-t\_1$的函数，而与$t\_1$和$t\_2$的值无关，则称此纯不连续马氏过程为齐次的。此时有
+若$$p_{i j}\left(t\right)=p_{i j}\left(t_{1}, t_{2}\right)$$，即转移概率仅为时间差$$t=t_2-t_1$$的函数，而与$$t_1$$和$$t_2$$的值无关，则称此纯不连续马氏过程为齐次的。此时有
 
 $$
 \left\{\begin{array}{l} p_{i j}\left(t\right) \geq 0 \\ \sum\limits_{j \in S} p_{i j}\left(t\right)=1 \quad i \in S \end{array}\right.
@@ -89,12 +89,12 @@ $$
 
 #### **性质1**
 
-* 对角线上元素$\leq 0$
-  * 对角线外元素$\geq 0$
+* 对角线上元素$$\leq 0$$
+* 对角线外元素$$\geq 0$$
 
 #### **性质2**
 
-* 每一行元素之和为零，$\sum\limits\_{j\in S}q\_{ij}=0$
+* 每一行元素之和为零，$$\sum\limits_{j\in S}q_{ij}=0$$
 
 ## 5. 前进方程
 
@@ -110,7 +110,7 @@ $$
 
 ## 7. Fokker-Planck方程
 
-令$p\_{j}(t)=P{X(t)=j}$
+令$$p_{j}(t)=P\{X(t)=j\}$$
 
 过程的初始分布为
 
@@ -140,33 +140,41 @@ $$
 
 ## 8. 纯不连续马氏过程的极限性质
 
-* #### 一些结论与定义
-  *   $\forall t \geq 0,i\in S$，有$p\_{ii}(t)>0$
+### 一些结论与定义
 
-      > 因此对于纯不连续马氏过程，每一个状态都是非周期的，无需引入周期的概念
-  * 若$\int\_0^{+\infin} p\_{ii}(t)dt=+\infin$，则称状态$i$为常返状态，否则为非常返状态
-  * 设$i$为常返状态，若$\lim\limits\_{t\rightarrow \infin}p\_{ii}(t)>0$，则称状态$i$为正常返状态；若$\lim\limits\_{t\rightarrow \infin}p\_{ii}(t)=0$，则称状态$i$为零常返状态
-  *   若概率分布$\mathbf{\pi}=(\pi\_i,i\in S)$，满足
+*   $$\forall t \geq 0,i\in S$$，有$$p_{ii}(t)>0$$
 
-      $$
-      \pi=\pi P(t), \quad \forall t \geq 0
-      $$
+    > 因此对于纯不连续马氏过程，每一个状态都是非周期的，无需引入周期的概念
+* 若$$\int_0^{+\infin} p_{ii}(t)dt=+\infin$$，则称状态$$i$$为常返状态，否则为非常返状态
+* 设$$i$$为常返状态，若$$\lim\limits_{t\rightarrow \infin}p_{ii}(t)>0$$，则称状态$$i$$为正常返状态；若$$\lim\limits_{t\rightarrow \infin}p_{ii}(t)=0$$，则称状态$$i$$为零常返状态
+*   若概率分布$$\mathbf{\pi}=(\pi_i,i\in S)$$，满足
 
-      则称$\pi$为${X(t),t\geq 0}$的平稳分布。
-  * 若对$\forall i \in S, \lim\limits\_{t \rightarrow \infin}p\_i(t)=\pi\_i^_$存在，则称$\pi^_\hat{=}{\pi\_i^\*,i\in S}$为${X(t),t\geq 0}$的极限分布。
-  * 与马氏链的讨论类似，我们有：==不可约纯不连续马氏过程是正常返的充分必要条件是它存在平稳分 布，且此时的平稳分布就是极限分布==。
-*   #### 极限性质
+    $$
+    \pi=\pi P(t), \quad \forall t \geq 0
+    $$
 
-    ![image-20211228172338613](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228172338.png) ![image-20211228172359346](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228172359.png)
+    则称$$\pi$$为$$\{X(t),t\geq 0\}$$的平稳分布。
+* 若对$$\forall i \in S, \lim\limits_{t \rightarrow \infin}p_i(t)=\pi_i^*$$存在，则称$$\pi^*\hat{=}\{\pi_i^*,i\in S\}$$为$$\{X(t),t\geq 0\}$$的极限分布。
+* 与马氏链的讨论类似，我们有：<mark style="color:blue;">不可约纯不连续马氏过程是正常返的充分必要条件是它存在平稳分 布，且此时的平稳分布就是极限分布</mark>。
+
+### 极限性质
+
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228172338.png)
+
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228172359.png)
 
 ## 9. 纯不连续马氏过程的例子
 
-* #### Poission过程
-* #### 纯增殖过程
-* #### 生灭过程
-  *   **定义**
+### Poission过程
 
-      ![image-20211228203845717](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228203845.png)
-  *   **正灭矩阵**
+### 纯增殖过程
 
-      ![image-20211228204050517](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228204050.png)
+### 生灭过程
+
+#### **定义**
+
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228203845.png)
+
+#### **正灭矩阵**
+
+![](https://gitee.com/liuyh9909/note-imgs/raw/master/img/20211228204050.png)
